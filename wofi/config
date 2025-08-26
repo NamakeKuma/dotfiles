@@ -1,0 +1,15 @@
+show=drun
+width=800
+height=600
+columns=1
+always_parse_args=true
+allow_images=true
+insensitive=true
+prompt=Search...
+term=alacritty
+gtk_dark=true
+
+# Отключаем дополнительные опции и стрелки
+hide_scroll=true
+no_actions=true
+parse_actions=false
