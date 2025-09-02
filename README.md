@@ -117,6 +117,11 @@ Environment variables are stored in the `environment` file.
 
 ## ⚠️ Important Notes
 
+### Initial Setup Recommendation
+**For first-time configuration installation**, I recommend pressing the `Mod + Shift + W` key combination and selecting any wallpaper. This will synchronize all color schemes to match your chosen wallpaper. 
+
+Since the configuration files include various wallpapers with different color schemes, this step ensures visual consistency and creates a unified aesthetic appearance.
+
 > **Warning**: Replacing system configurations can potentially break your desktop environment or applications. Always maintain backups of your original configurations.
 
 ### Pre-installation Checklist:
@@ -126,7 +131,6 @@ Environment variables are stored in the `environment` file.
 - [ ] Ensure internet connection for package downloads
 
 ---
-
 
 <div align="center">
 
