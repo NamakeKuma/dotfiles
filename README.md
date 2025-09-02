@@ -15,8 +15,6 @@
   <em>Desktop overview with waybar and applications | Another view showcasing the workflow</em>
 </p>
 
-I use [nakushot](https://github.com/NamakeKuma/nakushot) for taking screenshots 📸
-
 ---
 
 ## 📦 Dependencies
@@ -54,6 +52,8 @@ yay -S --needed \
   firefox file-roller fastfetch dunst btop bluez blueman adw-gtk-theme \
   cava-git
 ```
+
+I use [nakushot](https://github.com/NamakeKuma/nakushot) for taking screenshots 📸
 
 ---
 
