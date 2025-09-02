@@ -1,0 +1,31 @@
+#
+# This file is parsed by pam_  module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+XCURSOR_SIZE=24
+
+QT_QPA_PLATFORMTHEME=qt6ct
+QT_QPA_PLATFORM=wayland;xcb
+QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+QT_AUTO_SCREEN_SCALE_FACTOR=1
+
+MOZ_ENABLE_WAYLAND=1
+
+GDK_SCALE=1
+GTK_DECORATION_LAYOUT=:
+SDL_VIDEODRIVER="wayland,x11"
+
+ELECTRON_OZONE_PLATFORM_HINT=auto
+
+CLUTTER_BACKEND=wayland
+
+XDG_SESSION_TYPE=wayland
+
+RUSTICL_ENABLE=radeonsi
+RADV_PERFTEST=sam,nggc,pswave32,gewave32,nogttspill
+VKD3D_CONFIG=no_upload_hvv
+DXVK_ASYNC=1
+mesa_glthread=true
+_JAVA_AWT_WM_NONREPARENTING=1
+JDK_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
