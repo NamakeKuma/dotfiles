@@ -1,0 +1,126 @@
+include colors.conf
+include /etc/sway/config.d/*
+font JetBrainsMono Nerd Font 12px
+default_border pixel 5px
+xwayland enable
+
+set {
+	$mod Mod4
+	
+	$term kitty
+	
+	$menu wofi --show drun 
+
+	$fm thunar
+
+	$powermenu ~/.config/sway/powermenu
+
+	$wallchange find /home/$USER/wallpapers -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) -printf "%p\n" | wofi --dmenu --prompt "Выберите обои:" | xargs -I {} matugen image "{}"
+
+	$screenshot nakushot --area
+}
+
+exec {
+	/usr/lib/xdg-desktop-portal-wlr 
+	/usr/lib/xdg-desktop-portal-gtk
+	/usr/lib/xdg-desktop-portal
+	/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+	dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+	dbus-update-activation-environment --systemd --all
+	systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME
+	systemctl --user restart xdg-desktop-portal
+
+	nwg-look -a
+
+	swww-daemon
+	swww restore
+
+	autotiling
+
+	gsettings set org.gnome.desktop.wm.preferences button-layout ''
+	gsettings set org.gnome.desktop.wm.preferences theme ''
+
+	mako
+
+	wl-paste --type text --watch cliphist store
+	wl-paste --type image --watch cliphist store
+	wl-clip-persist --clipboard regular
+
+	corectrl
+	64gram-desktop -startintray
+	blueman-applet
+}
+
+input * {
+	xkb_layout us,ru
+	xkb_options grp:win_space_toggle
+	
+	repeat_rate 35
+	repeat_delay 250
+
+	accel_profile flat
+}
+
+bar {
+  swaybar_command waybar
+}
+
+floating_modifier $mod normal
+
+bindsym --to-code {
+	$mod+T exec $term
+	$mod+E exec $fm
+	$mod+D exec $menu
+	$mod+Shift+M exec $powermenu
+	$mod+Shift+W exec $wallchange
+	$mod+Shift+S exec $screenshot
+
+	$mod+Shift+C reload
+	$mod+Q kill
+	$mod+F fullscreen
+	$mod+Z floating toggle
+	
+	$mod+Left focus left
+	$mod+Down focus down
+	$mod+Up focus up
+	$mod+Right focus right
+
+	$mod+Shift+Left move left
+	$mod+Shift+Down move down
+	$mod+Shift+Up move up
+	$mod+Shift+Right move right
+	
+	$mod+1 workspace number 1
+	$mod+2 workspace number 2
+	$mod+3 workspace number 3
+	$mod+4 workspace number 4
+	$mod+5 workspace number 5
+	$mod+6 workspace number 6
+	$mod+7 workspace number 7
+	$mod+8 workspace number 8
+	$mod+9 workspace number 9
+	$mod+0 workspace number 10
+	
+	$mod+Shift+1 move container to workspace number 1; workspace 1
+	$mod+Shift+2 move container to workspace number 2; workspace 2
+	$mod+Shift+3 move container to workspace number 3; workspace 3
+	$mod+Shift+4 move container to workspace number 4; workspace 4
+	$mod+Shift+5 move container to workspace number 5; workspace 5
+	$mod+Shift+6 move container to workspace number 6; workspace 6
+	$mod+Shift+7 move container to workspace number 7; workspace 7
+	$mod+Shift+8 move container to workspace number 8; workspace 8
+	$mod+Shift+9 move container to workspace number 9; workspace 9
+	$mod+Shift+0 move container to workspace number 10; workspace 10
+}
+
+bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+
+for_window [app_id="orage"] floating enable
+for_window [app_id="Thunar"] floating enable
+for_window [app_id="org.pipewire.Helvum"] floating enable
+
+
