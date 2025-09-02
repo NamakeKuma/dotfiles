@@ -35,7 +35,7 @@ paru -S --needed \
   nwg-look noto-fonts noto-fonts-cjk noto-fonts-extra mpv matugen-git \
   kitty imv helvum grim gst-plugin-pipewire gpu-screen-recorder-gtk \
   firefox file-roller fastfetch mako btop bluez blueman adw-gtk-theme \
-  cava-git
+  cava-git 64gram-desktop-bin
 ```
 
 #### Using `yay` (AUR helper):
@@ -51,7 +51,7 @@ yay -S --needed \
   nwg-look noto-fonts noto-fonts-cjk noto-fonts-extra mpv matugen-git \
   kitty imv helvum grim gst-plugin-pipewire gpu-screen-recorder-gtk \
   firefox file-roller fastfetch mako btop bluez blueman adw-gtk-theme \
-  cava-git
+  cava-git 64gram-desktop-bin
 ```
 
 I use [nakushot](https://github.com/NamakeKuma/nakushot) for taking screenshots 📸
