@@ -9,6 +9,7 @@
 <div align="center">
   <img src="./screenshots/screen1.png" alt="Desktop Overview" width="45%">
   <img src="./screenshots/screen2.png" alt="Workflow Showcase" width="45%">
+  <img src="./screenshots/screen3.png" alt="Workflow Showcase" width="45%">
 </div>
 
 <p align="center">
