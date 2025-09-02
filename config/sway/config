@@ -1,41 +1,56 @@
-set $mod Mod4
+include colors.conf
+include /etc/sway/config.d/*
+font JetBrainsMono Nerd Font 12px
+default_border pixel 5px
+xwayland enable
 
-set $term kitty
+set {
+	$mod Mod4
+	
+	$term kitty
+	
+	$menu wofi --show drun 
 
-set $menu wofi --show drun 
+	$fm thunar
 
-exec /usr/lib/xdg-desktop-portal-wlr 
-exec /usr/lib/xdg-desktop-portal-gtk
-exec /usr/lib/xdg-desktop-portal
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+	$powermenu ~/.config/sway/powermenu
 
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-exec dbus-update-activation-environment --systemd --all
-exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME
-exec systemctl --user restart xdg-desktop-portal
+	$wallchange find /home/$USER/wallpapers -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) -printf "%p\n" | wofi --dmenu --prompt "Выберите обои:" | xargs -I {} matugen image "{}"
 
-exec nwg-look -a
+	$screenshot nakushot --area
+}
 
-exec swww-daemon
-exec swww restore
+exec {
+	/usr/lib/xdg-desktop-portal-wlr 
+	/usr/lib/xdg-desktop-portal-gtk
+	/usr/lib/xdg-desktop-portal
+	/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-exec autotiling
+	dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+	dbus-update-activation-environment --systemd --all
+	systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME
+	systemctl --user restart xdg-desktop-portal
 
-exec gsettings set org.gnome.desktop.wm.preferences button-layout ''
-exec gsettings set org.gnome.desktop.wm.preferences theme ''
+	nwg-look -a
 
-exec waybar
-exec swaync
+	swww-daemon
+	swww restore
 
-exec wl-paste --type text --watch cliphist store
-exec wl-paste --type image --watch cliphist store
-exec wl-clip-persist --clipboard regular
+	autotiling
 
-exec corectrl
-exec 64gram-desktop -startintray
-exec blueman-applet
+	gsettings set org.gnome.desktop.wm.preferences button-layout ''
+	gsettings set org.gnome.desktop.wm.preferences theme ''
 
-default_border pixel 0
+	mako
+
+	wl-paste --type text --watch cliphist store
+	wl-paste --type image --watch cliphist store
+	wl-clip-persist --clipboard regular
+
+	corectrl
+	64gram-desktop -startintray
+	blueman-applet
+}
 
 input * {
 	xkb_layout us,ru
@@ -47,23 +62,25 @@ input * {
 	accel_profile flat
 }
 
+bar {
+  swaybar_command waybar
+}
+
 floating_modifier $mod normal
 
 bindsym --to-code {
 	$mod+T exec $term
-	
-	$mod+E exec thunar
-	
-	$mod+Q kill
-	
+	$mod+E exec $fm
 	$mod+D exec $menu
-	
-	$mod+Shift+C reload
-	
-	$mod+Shift+M exec ~/.config/sway/powermenu
+	$mod+Shift+M exec $powermenu
+	$mod+Shift+W exec $wallchange
+	$mod+Shift+S exec $screenshot
 
-	$mod+Shift+W exec find /home/$USER/wallpapers -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) -printf "%p\n" | wofi --dmenu --prompt "Выберите обои:" | xargs -I {} matugen image "{}"
-		
+	$mod+Shift+C reload
+	$mod+Q kill
+	$mod+F fullscreen
+	$mod+Z floating toggle
+	
 	$mod+Left focus left
 	$mod+Down focus down
 	$mod+Up focus up
@@ -95,12 +112,6 @@ bindsym --to-code {
 	$mod+Shift+8 move container to workspace number 8; workspace 8
 	$mod+Shift+9 move container to workspace number 9; workspace 9
 	$mod+Shift+0 move container to workspace number 10; workspace 10
-	
-	$mod+F fullscreen
-	
-	$mod+Z floating toggle
-
-	$mod+Shift+S exec nakushot --area
 }
 
 bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
@@ -108,10 +119,8 @@ bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@
 bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 
-xwayland enable
-
 for_window [app_id="orage"] floating enable
 for_window [app_id="Thunar"] floating enable
 for_window [app_id="org.pipewire.Helvum"] floating enable
 
-include /etc/sway/config.d/*
+
