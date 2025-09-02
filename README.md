@@ -33,7 +33,7 @@ paru -S --needed \
   pipewire-jack pipewire-alsa pipewire papirus-icon-theme orage \
   nwg-look noto-fonts noto-fonts-cjk noto-fonts-extra mpv matugen-git \
   kitty imv helvum grim gst-plugin-pipewire gpu-screen-recorder-gtk \
-  firefox file-roller fastfetch dunst btop bluez blueman adw-gtk-theme \
+  firefox file-roller fastfetch mako btop bluez blueman adw-gtk-theme \
   cava-git
 ```
 
@@ -49,7 +49,7 @@ yay -S --needed \
   pipewire-jack pipewire-alsa pipewire papirus-icon-theme orage \
   nwg-look noto-fonts noto-fonts-cjk noto-fonts-extra mpv matugen-git \
   kitty imv helvum grim gst-plugin-pipewire gpu-screen-recorder-gtk \
-  firefox file-roller fastfetch dunst btop bluez blueman adw-gtk-theme \
+  firefox file-roller fastfetch mako btop bluez blueman adw-gtk-theme \
   cava-git
 ```
 
