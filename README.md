@@ -4,55 +4,122 @@
 
 ---
 
-## 📋 Dependencies
-
-To set up this environment, install the following packages:
-
-### Using `paru` (AUR helper):
-```bash
-paru -S xorg-xwayland xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-wlr wofi wl-clipboard wl-clip-persist wireplumber waybar ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono thunar thunar-archive-plugin thunar-media-tags-plugin swaybg sway slurp qt6ct qt6-wayland qt5ct qt5-wayland qbittorrent polkit-gnome pipewire-pulse pipewire-jack pipewire-alsa pipewire papirus-icon-theme orage nwg-look noto-fonts noto-fonts-cjk noto-fonts-extra mpv matugen-git kitty imv helvum grim gst-plugin-pipewire gpu-screen-recorder-gtk firefox file-roller fastfetch dunst btop bluez blueman adw-gtk-theme matugen-git cava-git
-```
-
-### Using `yay` (AUR helper):
-```bash
-yay -S xorg-xwayland xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-wlr wofi wl-clipboard wl-clip-persist wireplumber waybar ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono thunar thunar-archive-plugin thunar-media-tags-plugin swaybg sway slurp qt6ct qt6-wayland qt5ct qt5-wayland qbittorrent polkit-gnome pipewire-pulse pipewire-jack pipewire-alsa pipewire papirus-icon-theme orage nwg-look noto-fonts noto-fonts-cjk noto-fonts-extra mpv matugen-git kitty imv helvum grim gst-plugin-pipewire gpu-screen-recorder-gtk firefox file-roller fastfetch dunst btop bluez blueman adw-gtk-theme matugen-git cava-git
-```
-
----
-
-## 🌍 Environment Variables
-
-Environment variables are stored in the `environment` file. 
-
-📝 *I typically place them at `/etc/environment`, but you can put them wherever works best for your setup!*
-
----
-
 ## 📸 Screenshots
 
-Here's how my desktop environment looks:
-
 <div align="center">
-  <img src="./screenshots/screen1.png" alt="Desktop Overview" width="45%" style="margin: 10px;">
-  <img src="./screenshots/screen2.png" alt="Workflow Showcase" width="45%" style="margin: 10px;">
+  <img src="./screenshots/screen1.png" alt="Desktop Overview" width="45%">
+  <img src="./screenshots/screen2.png" alt="Workflow Showcase" width="45%">
 </div>
 
-*Desktop overview with waybar and applications | Another view showcasing the workflow*
+<p align="center">
+  <em>Desktop overview with waybar and applications | Another view showcasing the workflow</em>
+</p>
 
 ---
 
-## 🛠️ Additional Tools
+## 📦 Dependencies
 
-I use [nakushot](https://github.com/NamakeKuma/nakushot) for taking screenshots 📸
+### Essential Packages Installation
+
+#### Using `paru` (AUR helper):
+```bash
+paru -S --needed \
+  zsh xorg-xwayland xdg-desktop-portal xdg-desktop-portal-gtk \
+  xdg-desktop-portal-wlr wofi wl-clipboard wl-clip-persist wireplumber \
+  waybar ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols \
+  ttf-nerd-fonts-symbols-mono thunar thunar-archive-plugin \
+  thunar-media-tags-plugin swaybg sway slurp qt6ct qt6-wayland \
+  qt5ct qt5-wayland qbittorrent polkit-gnome pipewire-pulse \
+  pipewire-jack pipewire-alsa pipewire papirus-icon-theme orage \
+  nwg-look noto-fonts noto-fonts-cjk noto-fonts-extra mpv matugen-git \
+  kitty imv helvum grim gst-plugin-pipewire gpu-screen-recorder-gtk \
+  firefox file-roller fastfetch dunst btop bluez blueman adw-gtk-theme \
+  cava-git
+```
+
+#### Using `yay` (AUR helper):
+```bash
+yay -S --needed \
+  zsh xorg-xwayland xdg-desktop-portal xdg-desktop-portal-gtk \
+  xdg-desktop-portal-wlr wofi wl-clipboard wl-clip-persist wireplumber \
+  waybar ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols \
+  ttf-nerd-fonts-symbols-mono thunar thunar-archive-plugin \
+  thunar-media-tags-plugin swaybg sway slurp qt6ct qt6-wayland \
+  qt5ct qt5-wayland qbittorrent polkit-gnome pipewire-pulse \
+  pipewire-jack pipewire-alsa pipewire papirus-icon-theme orage \
+  nwg-look noto-fonts noto-fonts-cjk noto-fonts-extra mpv matugen-git \
+  kitty imv helvum grim gst-plugin-pipewire gpu-screen-recorder-gtk \
+  firefox file-roller fastfetch dunst btop bluez blueman adw-gtk-theme \
+  cava-git
+```
 
 ---
 
-## 💡 Tips
+## ⚡ Oh My Zsh
 
-- Make sure to reload your environment after changing variables: `source /etc/environment`
-- Restart Sway after making configuration changes.
-- Check out the individual config files for each application for more customization options!
+Oh My Zsh is a delightful, open source, community-driven framework for managing your Zsh configuration.
+
+<div align="center">
+
+[![Oh My Zsh](https://ohmyz.sh/img/OMZLogo_BnW.png)](https://ohmyz.sh)
+
+</div>
+
+### Installation
+```bash
+# Using curl
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Using wget
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
 
 ---
 
-*Happy ricing! 🎨*
+## ⚙️ Configuration Setup
+
+### ZSH Configuration
+```bash
+# Backup existing configuration
+if [ -f ~/.zshrc ]; then
+  mv ~/.zshrc ~/.zshrc.backup.$(date +%Y%m%d%H%M%S)
+fi
+
+# Install new zshrc
+cp zshrc ~/.zshrc
+
+# Set ZSH as default shell
+chsh -s "$(which zsh)"
+```
+
+### System Configuration
+```bash
+# Create backup of existing config
+if [ -d "$HOME/.config" ]; then
+  mv "$HOME/.config" "$HOME/.config.backup.$(date +%Y%m%d%H%M%S)"
+fi
+
+# Install new configuration
+cp -r config ~/.config
+```
+
+---
+
+## ⚠️ Important Notes
+
+> **Warning**: Replacing system configurations can potentially break your desktop environment or applications. Always maintain backups of your original configurations.
+
+### Pre-installation Checklist:
+- [ ] Backup important data
+- [ ] Verify package compatibility with your system
+- [ ] Review configuration files for personal customization
+- [ ] Ensure internet connection for package downloads
+
+---
+
+
+<div align="center">
+
+**Enjoy your new desktop experience!** 🎉
+
+</div>
