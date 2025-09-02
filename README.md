@@ -15,6 +15,8 @@
   <em>Desktop overview with waybar and applications | Another view showcasing the workflow</em>
 </p>
 
+I use [nakushot](https://github.com/NamakeKuma/nakushot) for taking screenshots 📸
+
 ---
 
 ## 📦 Dependencies
