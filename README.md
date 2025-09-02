@@ -105,6 +105,14 @@ cp -r config ~/.config
 
 ---
 
+## 🌍 Environment Variables
+
+Environment variables are stored in the `environment` file. 
+
+📝 *I typically place them at `/etc/environment`, but you can put them wherever works best for your setup!*
+
+---
+
 ## ⚠️ Important Notes
 
 > **Warning**: Replacing system configurations can potentially break your desktop environment or applications. Always maintain backups of your original configurations.
