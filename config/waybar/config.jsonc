@@ -34,6 +34,7 @@
      "clock": {
           "format": "<b></b> {:%I:%M %p}",
           "on-click": "orage",
+          "tooltip": false,
      },
 
      "wireplumber": {
