@@ -6,7 +6,6 @@ set = true
 [templates.waybar]
 input_path = '~/.config/matugen/templates/matugen-waybar.css'
 output_path = '~/.config/waybar/colors.css'
-post_hook = 'pkill -SIGUSR2 waybar'
 
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk/gtk-colors.css'
@@ -38,11 +37,6 @@ input_path = '~/.config/matugen/templates/pywalfox.json'
 output_path = '~/.cache/wal/colors.json'
 post_hook = 'pywalfox update'
 
-[templates.sway]
-input_path = '~/.config/matugen/templates/sway-colors.conf'
-output_path = '~/.config/sway/colors.conf'
-post_hook = 'swaymsg reload'
-
 [templates.btop]
 input_path = '~/.config/matugen/templates/btop.theme'
 output_path = '~/.config/btop/themes/matugen.theme'
@@ -55,3 +49,30 @@ post_hook = 'makoctl reload'
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava-colors.ini'
 output_path = '~/.config/cava/config'
+
+[templates.walcolors_css]
+input_path = '~/.config/matugen/templates/walcolors.css'
+output_path = '~/.cache/wal/colors.css'
+
+[templates.walcolors]
+input_path = '~/.config/matugen/templates/walcolors'
+output_path = '~/.cache/wal/colors'
+
+[templates.wal]
+input_path = '~/.config/matugen/templates/wal'
+output_path = '~/.cache/wal/wal'
+
+[templates.walcolors_sh]
+input_path = '~/.config/matugen/templates/walcolors.sh'
+output_path = '~/.cache/wal/colors.sh'
+post_hook = 'walogram -s'
+
+[templates.sway]
+input_path = '~/.config/matugen/templates/sway-colors.conf'
+output_path = '~/.config/sway/colors.conf'
+post_hook = 'swaymsg reload'
+
+[templates.ytm_css]
+input_path = "~/.config/matugen/templates/ytm.css"
+output_path = "~/.cache/ytm-colors.css"
+post_hook = 'sh /home/naku/.config/matugen/hooks/ytm-post_hook.sh'

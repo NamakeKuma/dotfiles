@@ -1,0 +1,16 @@
+{{colors.background.default.hex_stripped}}
+{{colors.error.default.hex_stripped}}
+{{colors.tertiary.default.hex_stripped}}
+{{colors.primary_container.default.hex_stripped}}
+{{colors.secondary.default.hex_stripped}}
+{{colors.primary.default.hex_stripped}}
+{{colors.surface_variant.default.hex_stripped}}
+{{colors.on_background.default.hex_stripped}}
+{{colors.outline_variant.default.hex_stripped}}
+{{colors.error.default.hex_stripped}}
+{{colors.tertiary.default.hex_stripped}}
+{{colors.primary_container.default.hex_stripped}}
+{{colors.secondary.default.hex_stripped}}
+{{colors.primary.default.hex_stripped}}
+{{colors.surface_variant.default.hex_stripped}}
+{{colors.on_background.default.hex_stripped}}

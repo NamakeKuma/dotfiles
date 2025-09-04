@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Директория с обоями
+wallpaper_dir="$HOME/wallpapers"
+
+# Проверяем существование директории
+if [ ! -d "$wallpaper_dir" ]; then
+    echo "Директория $wallpaper_dir не существует!"
+    exit 1
+fi
+
+# Получаем список файлов, отсортированный по алфавиту, и сохраняем в массив
+mapfile -t wallpapers < <(find "$wallpaper_dir" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" \) | sort)
+
+# Проверяем, есть ли файлы
+if [ ${#wallpapers[@]} -eq 0 ]; then
+    echo "В директории $wallpaper_dir нет изображений!"
+    exit 1
+fi
+
+# Формируем список для wofi (только имена файлов без путей)
+wofi_list=$(printf "%s\n" "${wallpapers[@]}" | xargs -I {} basename "{}")
+
+# Вызываем wofi для выбора и получаем выбранное имя файла
+selected=$(echo "$wofi_list" | wofi --dmenu --prompt "Выберите обои:" --sort alphabetical)
+
+# Если выбор отменен (пустая строка), выходим
+if [ -z "$selected" ]; then
+    exit 0
+fi
+
+# Находим полный путь выбранного файла
+selected_path=""
+for wp in "${wallpapers[@]}"; do
+    if [ "$(basename "$wp")" = "$selected" ]; then
+        selected_path=$wp
+        break
+    fi
+done
+
+# Если путь найден, выполняем matugen
+if [ -n "$selected_path" ]; then
+    matugen image "$selected_path"
+else
+    echo "Ошибка: не удалось найти путь для выбранного файла."
+fi

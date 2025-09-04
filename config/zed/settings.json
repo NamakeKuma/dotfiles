@@ -1,0 +1,55 @@
+{
+     "icon_theme": "Material Icon Theme",
+     "disable_ai": true,
+     "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+     "ui_font_family": "JetBrainsMono Nerd Font",
+     "telemetry": {
+          "diagnostics": false,
+          "metrics": false
+     },
+     "ui_font_size": 16.0,
+     "buffer_font_size": 16.0,
+     "theme": {
+          "mode": "system",
+          "light": "GitHub Dark Default",
+          "dark": "GitHub Dark Default"
+     },
+     "tab_size": 5,
+     "prettier": {
+          "allowed": true,
+          "tabWidth": 5,
+          "bracketSpacing": true,
+          "semi": false,
+          "jsxSingleQuote": true,
+          "singleQuote": true
+     },
+     "tabs": {
+          "git_status": true
+     },
+     "toolbar": {
+          "breadcrumbs": true,
+          "quick_actions": false,
+          "selections_menu": false
+     },
+     "show_edit_predictions": false,
+     "languages": {
+          "YAML": {
+               "show_edit_predictions": false
+          }
+     },
+     "features": {
+          "edit_prediction_provider": "zed"
+     },
+     "autosave": "on_window_change",
+     "terminal": {
+          "button": true,
+          "copy_on_select": true,
+          "blinking": "on",
+          "font_family": "JetBrainsMono Nerd Font Mono"
+     },
+     "collaboration_panel": {
+          "button": false
+     },
+     "format_on_save": "on",
+     "formatter": "prettier"
+}

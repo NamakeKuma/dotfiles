@@ -1,62 +1,76 @@
 {
-  "layer": "top",
-  "position": "top",
-  "height": 30,
-  "modules-left": ["sway/workspaces"],
-  "modules-center": ["clock"],
-  "modules-right": ["tray", "network", "wireplumber", "sway/language"],
+     "layer": "top",
+     "position": "top",
+     "height": 30,
+     "modules-left": ["cpu", "memory", "clock"],
+     "modules-center": ["sway/workspaces"],
+     "modules-right": ["tray", "network", "wireplumber", "sway/language"],
 
-  "sway/workspaces": {
-  	"disable-scroll": true,
-  	"all-outputs": true,
-    "format": "[ {name} > {icon} ]",
-    "format-icons": {
-        "urgent": "",
-        "focused": "",
-        "default": "",
-    }
-  },
+     "sway/workspaces": {
+          "all-outputs": true,
+          "disable-scroll": true,
+          "format": "{icon}",
+          "format-icons": {
+               "urgent": "⚠",
+               "focused": "(X)",
+               "default": "-",
+               "empty": "-",
+               "hidden": "-",
+               "persistent": "-",
+               "1": "一",
+               "2": "二",
+               "3": "三",
+               "4": "四",
+               "5": "五",
+               "6": "六",
+               "7": "七",
+               "8": "八",
+               "9": "九",
+               "10": "十",
+          },
+          "on-click": "activate",
+     },
 
-  "clock": {
-    "format": "<b></b> {:%I:%M %p}",
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "on-click": "orage",
-    "calendar": {
-      "mode": "month",
-      "mode-mon-col": 3,
-      "on-scroll": 1,
-      "format": {
-        "months": "<span color='#ffffff'><b>{}</b></span>",
-        "days": "<span color='#ffffff'>{}</span>",
-        "today": "<span color='#ff0000'><b>{}</b></span>",
-        "weekdays": "<span color='#ffffff'>{}</span>",
-      },
-    },
-  },
+     "clock": {
+          "format": "<b></b> {:%I:%M %p}",
+          "on-click": "orage",
+     },
 
-	"wireplumber": {
-	    "format": "{volume}% {icon}",
-	    "format-muted": "",
-	    "on-click": "helvum",
-	    "max-volume": 100,
-		"format-icons": ["", "", ""]
-	},
+     "wireplumber": {
+          "format": "{icon} {volume}%",
+          "format-muted": "",
+          "on-click": "helvum",
+          "max-volume": 100,
+          "format-icons": ["", "", ""],
+     },
 
-  "sway/language": {
-  	"format": "{short} {variant}",
-  	"on-click": "swaymsg input type:keyboard xkb_switch_layout next"
-  },
+     "sway/language": {
+          "format": " {short} {variant}",
+          "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+     },
 
-  "network": {
-    "format": "{ifname}",
-    "format-wifi": " {essid}",
-    "format-ethernet": " Ethernet",
-    "format-disconnected": "󰲜 No Network",
-    "tooltip": false,
-  },
+     "network": {
+          "format": "{ifname}",
+          "format-wifi": " {essid}",
+          "format-ethernet": " Ethernet",
+          "format-disconnected": "󰲜 No Network",
+          "tooltip": false,
+     },
 
-  "tray": {
-    "icon-size": 16,
-    "spacing": 10,
-  }
+     "tray": {
+          "icon-size": 16,
+          "spacing": 10,
+     },
+
+     "cpu": {
+          "interval": 3,
+          "format": " {}% ",
+          "max-length": 100,
+     },
+
+     "memory": {
+          "interval": 3,
+          "format": " {}%",
+          "max-length": 10,
+     },
 }

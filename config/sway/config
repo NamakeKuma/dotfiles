@@ -4,24 +4,27 @@ font JetBrainsMono Nerd Font 12px
 default_border pixel 5px
 xwayland enable
 
+seat * xcursor_theme ModernXP
+
 set {
 	$mod Mod4
-	
+
 	$term kitty
-	
-	$menu wofi --show drun 
+
+	$menu wofi --show drun
 
 	$fm thunar
 
 	$powermenu ~/.config/sway/powermenu
 
-	$wallchange find /home/$USER/wallpapers -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) -printf "%p\n" | wofi --dmenu --prompt "Выберите обои:" | xargs -I {} matugen image "{}"
+	$wallchange ~/.config/sway/walchanger
 
-	$screenshot nakushot --area
+	$screenshot_a nakushot --area
+	$screenshot_f nakushot --full
 }
 
 exec {
-	/usr/lib/xdg-desktop-portal-wlr 
+	/usr/lib/xdg-desktop-portal-wlr
 	/usr/lib/xdg-desktop-portal-gtk
 	/usr/lib/xdg-desktop-portal
 	/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -52,10 +55,11 @@ exec {
 	blueman-applet
 }
 
+
 input * {
 	xkb_layout us,ru
 	xkb_options grp:win_space_toggle
-	
+
 	repeat_rate 35
 	repeat_delay 250
 
@@ -74,13 +78,14 @@ bindsym --to-code {
 	$mod+D exec $menu
 	$mod+Shift+M exec $powermenu
 	$mod+Shift+W exec $wallchange
-	$mod+Shift+S exec $screenshot
+	$mod+Shift+S exec $screenshot_a
+	$mod+Shift+F exec $screenshot_f
 
 	$mod+Shift+C reload
 	$mod+Q kill
 	$mod+F fullscreen
 	$mod+Z floating toggle
-	
+
 	$mod+Left focus left
 	$mod+Down focus down
 	$mod+Up focus up
@@ -90,7 +95,7 @@ bindsym --to-code {
 	$mod+Shift+Down move down
 	$mod+Shift+Up move up
 	$mod+Shift+Right move right
-	
+
 	$mod+1 workspace number 1
 	$mod+2 workspace number 2
 	$mod+3 workspace number 3
@@ -101,7 +106,7 @@ bindsym --to-code {
 	$mod+8 workspace number 8
 	$mod+9 workspace number 9
 	$mod+0 workspace number 10
-	
+
 	$mod+Shift+1 move container to workspace number 1; workspace 1
 	$mod+Shift+2 move container to workspace number 2; workspace 2
 	$mod+Shift+3 move container to workspace number 3; workspace 3
@@ -119,8 +124,13 @@ bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@
 bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 
-for_window [app_id="orage"] floating enable
-for_window [app_id="Thunar"] floating enable
-for_window [app_id="org.pipewire.Helvum"] floating enable
+for_window {
+	[app_id="org.pipewire.Helvum"] floating enable
+	[app_id="Thunar"] floating enable
+	[app_id="thunar"] floating enable
+	[app_id="orage"] floating enable
+}
 
-
+assign {
+	[app_id="com.github.th_ch.youtube_music"] 1
+}
