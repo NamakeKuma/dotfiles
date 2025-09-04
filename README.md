@@ -17,7 +17,7 @@
 </div>
 
 <p align="center">
-  <em>Desktop overview with waybar and applications | Another view showcasing the workflow</em>
+  <em>Desktop overview with waybar and applications</em>
 </p>
 
 ---
