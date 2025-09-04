@@ -35,7 +35,7 @@ paru -S --needed \
   nwg-look noto-fonts noto-fonts-cjk noto-fonts-extra mpv matugen-git \
   kitty imv helvum grim gst-plugin-pipewire gpu-screen-recorder-gtk \
   firefox file-roller fastfetch mako btop bluez blueman adw-gtk-theme \
-  cava-git 64gram-desktop-bin
+  cava-git 64gram-desktop-bin walogram-git
 ```
 
 #### Using `yay` (AUR helper):
@@ -51,7 +51,7 @@ yay -S --needed \
   nwg-look noto-fonts noto-fonts-cjk noto-fonts-extra mpv matugen-git \
   kitty imv helvum grim gst-plugin-pipewire gpu-screen-recorder-gtk \
   firefox file-roller fastfetch mako btop bluez blueman adw-gtk-theme \
-  cava-git 64gram-desktop-bin
+  cava-git 64gram-desktop-bin walogram-git
 ```
 
 I use [nakushot](https://github.com/NamakeKuma/nakushot) for taking screenshots 📸
@@ -124,6 +124,13 @@ Environment variables are stored in the `environment` file.
 Since the configuration files include various wallpapers with different color schemes, this step ensures visual consistency and creates a unified aesthetic appearance.
 
 > **Warning**: Replacing system configurations can potentially break your desktop environment or applications. Always maintain backups of your original configurations.
+
+## 🎨 Add the material theme to 64gram
+
+To add the material theme to 64gram: open **Settings > Chat settings > ⋯ (three dots) > Create a theme > mess up the theme**.  
+The theme will be saved to **~/.cache/walogram/**
+
+---
 
 ### Pre-installation Checklist:
 - [ ] Backup important data
