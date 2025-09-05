@@ -2,6 +2,7 @@ include colors.conf
 include /etc/sway/config.d/*
 font JetBrainsMono Nerd Font 12px
 default_border pixel 5px
+default_floating_border pixel 5px
 xwayland enable
 
 seat * xcursor_theme ModernXP
