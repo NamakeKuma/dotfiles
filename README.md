@@ -1,3 +1,6 @@
+# Миграция на GitLab
+по некоторым причинам я решил мигрировать на GitLab: https://gitlab.com/NamakeKuma
+
 # 🎨 My Arch Linux + Sway Dotfiles
 
 ✨ *A collection of my personalized configuration files for Arch Linux with Sway Window Manager* ✨
